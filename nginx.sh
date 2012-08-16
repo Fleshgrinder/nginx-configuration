@@ -14,6 +14,9 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 DAEMON=/usr/local/sbin/nginx
 NAME=nginx
 DESC=nginx
+BODY_PATH=/dev/shm/nginx/body
+FASTCGI_PATH=/dev/shm/nginx/fastcgi/temp
+PROXY_PATH=/dev/shm/nginx/proxy/temp
 
 # Include nginx defaults if available
 if [ -f /etc/default/nginx ]; then
@@ -27,6 +30,16 @@ set -e
 . /lib/lsb/init-functions
 
 test_nginx_config() {
+        # Check if our directories exist
+        if [ ! -d "$BODY_PATH" ]; then
+                mkdir -p $BODY_PATH
+        fi
+        if [ ! -d "$FASTCGI_PATH" ]; then
+                mkdir -p $FASTCGI_PATH
+        fi
+        if [ ! -d "$PROXY_PATH" ]; then
+                mkdir -p $PROXY_PATH
+        fi
         if $DAEMON -t $DAEMON_OPTS >/dev/null 2>&1; then
                 return 0
         else
