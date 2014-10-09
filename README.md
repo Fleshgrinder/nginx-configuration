@@ -1,7 +1,15 @@
-# nginx
+# nginx configuration
+Collection of nginx configuration templates for various use cases, mainly
+intended to run PHP web applications.
 
-This is my personal nginx configuration.
+## Weblinks
+Other repositories of interest:
 
-Contains the standard Debian init script altered to start nginx from
-`/usr/local/sbin/nginx`. Be sure to copy the `nginx.sh` file into your
-`/etc/init.d` directory and change the permissions to `755`.
+- [nginx-compile](https://github.com/Fleshgrinder/nginx-compile)
+- [nginx-session-ticket-key-rotation](https://github.com/Fleshgrinder/nginx-session-ticket-key-rotation)
+- [nginx-sysvinit-script](https://github.com/Fleshgrinder/nginx-sysvinit-script)
+
+## License
+> This is free and unencumbered software released into the public domain.
+>
+> For more information, please refer to <http://unlicense.org>
