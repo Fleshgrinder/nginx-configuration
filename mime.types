@@ -1,5 +1,3 @@
-# /etc/nginx/mime.types
-
 #! -----------------------------------------------------------------------------
 # This is free and unencumbered software released into the public domain.
 #
@@ -87,7 +85,7 @@ types {
     audio/mpeg                            mp3;
     audio/ogg                             oga ogg opus;
     audio/x-realaudio                     ra;
-    audio/x-wav                           wav;
+    audio/wave                            wav;
     font/opentype                         otf;
     image/bmp                             bmp;
     image/gif                             gif;
