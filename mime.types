@@ -1,0 +1,123 @@
+# /etc/nginx/mime.types
+
+#! -----------------------------------------------------------------------------
+# This is free and unencumbered software released into the public domain.
+#
+# Anyone is free to copy, modify, publish, use, compile, sell, or distribute
+# this software, either in source code form or as a compiled binary, for any
+# purpose, commercial or non-commercial, and by any means.
+#
+# In jurisdictions that recognize copyright laws, the author or authors of this
+# software dedicate any and all copyright interest in the software to the public
+# domain. We make this dedication for the benefit of the public at large and to
+# the detriment of our heirs and successors. We intend this dedication to be an
+# overt act of relinquishment in perpetuity of all present and future rights to
+# this software under copyright law.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+# ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+# WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+#
+# For more information, please refer to <http://unlicense.org>
+# ------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------
+# MIME type configuration.
+#
+# AUTHOR: Richard Fussenegger <richard@fussenegger.info>
+# COPYRIGHT: Copyright (c) 2014 Richard Fussenegger
+# LICENSE: http://unlicense.org/ PD
+# LINK: http://richard.fussenegger.info/
+# ------------------------------------------------------------------------------
+
+types {
+    application/font-woff                 woff;
+    application/font-woff2                woff2;
+    application/java-archive              jar war ear;
+    application/javascript                js;
+    application/json                      json;
+    application/mac-binhex40              hqx;
+    application/msword                    doc;
+    application/octet-stream              bin exe dll;
+    application/octet-stream              deb;
+    application/octet-stream              dmg;
+    application/octet-stream              iso img;
+    application/octet-stream              msi msp msm;
+    application/octet-stream              safariextz;
+    application/pdf                       pdf;
+    application/postscript                ps eps ai;
+    application/rtf                       rtf;
+    application/vnd.google-earth.kml+xml  kml;
+    application/vnd.google-earth.kmz      kmz;
+    application/vnd.ms-excel              xls;
+    application/vnd.ms-fontobject         eot;
+    application/vnd.ms-powerpoint         ppt;
+    application/vnd.openxmlformats-officedocument.presentationml.presentation  pptx;
+    application/vnd.openxmlformats-officedocument.spreadsheetml.sheet          xlsx;
+    application/vnd.openxmlformats-officedocument.wordprocessingml.document    docx;
+    application/vnd.wap.wmlc              wmlc;
+    application/x-7z-compressed           7z;
+    application/x-bittorrent              torrent;
+    application/x-chrome-extension        crx;
+    application/x-cocoa                   cco;
+    application/x-font-ttf                ttc ttf;
+    application/x-java-archive-diff       jardiff;
+    application/x-java-jnlp-file          jnlp;
+    application/x-makeself                run;
+    application/x-opera-extension         oex;
+    application/x-perl                    pl pm;
+    application/x-pilot                   prc pdb;
+    application/x-rar-compressed          rar;
+    application/x-redhat-package-manager  rpm;
+    application/x-sea                     sea;
+    application/x-shockwave-flash         swf;
+    application/x-stuffit                 sit;
+    application/x-tcl                     tcl tk;
+    application/x-web-app-manifest+json   webapp;
+    application/x-x509-ca-cert            der pem crt;
+    application/x-xpinstall               xpi;
+    application/xhtml+xml                 xhtml;
+    application/xml                       atom rdf rss xml;
+    application/zip                       zip;
+    audio/midi                            mid midi kar;
+    audio/mp4                             aac f4a f4b m4a;
+    audio/mpeg                            mp3;
+    audio/ogg                             oga ogg opus;
+    audio/x-realaudio                     ra;
+    audio/x-wav                           wav;
+    font/opentype                         otf;
+    image/bmp                             bmp;
+    image/gif                             gif;
+    image/jpeg                            jpeg jpg;
+    image/png                             png;
+    image/svg+xml                         svg svgz;
+    image/tiff                            tif tiff;
+    image/vnd.wap.wbmp                    wbmp;
+    image/webp                            webp;
+    image/x-icon                          ico cur;
+    image/x-jng                           jng;
+    text/cache-manifest                   manifest appcache;
+    text/css                              css;
+    text/html                             html htm shtml;
+    text/mathml                           mml;
+    text/plain                            txt;
+    text/vnd.sun.j2me.app-descriptor      jad;
+    text/vnd.wap.wml                      wml;
+    text/vtt                              vtt;
+    text/x-component                      htc;
+    text/x-vcard                          vcf;
+    video/3gpp                            3gpp 3gp;
+    video/mp4                             mp4 m4v f4v f4p;
+    video/mpeg                            mpeg mpg;
+    video/ogg                             ogv;
+    video/quicktime                       mov;
+    video/webm                            webm;
+    video/x-flv                           flv;
+    video/x-mng                           mng;
+    video/x-ms-asf                        asx asf;
+    video/x-ms-wmv                        wmv;
+    video/x-msvideo                       avi;
+}
