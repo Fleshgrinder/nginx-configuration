@@ -131,6 +131,10 @@ server {
 }
 EOT
 
+if [ ! -d "/etc/nginx/certificates/${1}/www" ]
+    then mkdir --parents -- "/etc/nginx/certificates/${1}/www"
+fi
+
 if [ ! -d "/var/www/${1}" ]
     then mkdir --parents -- "/var/www/${1}"
 fi
