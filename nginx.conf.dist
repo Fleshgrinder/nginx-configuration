@@ -25,25 +25,15 @@
 # ------------------------------------------------------------------------------
 # Main nginx configuration.
 #
-# AUTHOR: Richard Fussenegger <richard@fussenegger.info>
-# COPYRIGHT: Copyright (c) 2014 Richard Fussenegger
-# LICENSE: http://unlicense.org/ PD
-# LINK: http://richard.fussenegger.info/
+# AUTHOR:    Richard Fussenegger <richard@fussenegger.info>
+# COPYRIGHT: 2008-15 Richard Fussenegger
+# LICENSE:   http://unlicense.org/ PD
 # ------------------------------------------------------------------------------
 
 pcre_jit                            on;
 timer_resolution                    1s;
-# Six-core Xeon with Hyper-Threading.
-worker_cpu_affinity
-                                    000001000001000001000001000001000001
-                                    000010000010000010000010000010000010
-                                    000100000100000100000100000100000100
-                                    001000001000001000001000001000001000
-                                    010000010000010000010000010000010000
-                                    100000100000100000100000100000100000
-;
+include                             includes/worker-auto.conf;
 worker_priority                     15;
-worker_processes                    6;
 worker_rlimit_core                  0;
 worker_rlimit_nofile                262144;
 

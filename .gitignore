@@ -1,1 +1,4 @@
 .idea
+sites/*
+!sites/_.conf
+nginx.conf
