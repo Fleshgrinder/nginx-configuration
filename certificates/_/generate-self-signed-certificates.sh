@@ -27,10 +27,9 @@
 # ------------------------------------------------------------------------------
 # Generate self-signed certificate which is valid for ten years.
 #
-# AUTHOR: Richard Fussenegger <richard@fussenegger.info>
-# COPYRIGHT: Copyright (c) 2014 Richard Fussenegger
-# LICENSE: http://unlicense.org/ PD
-# LINK: http://richard.fussenegger.info/
+# AUTHOR:    Richard Fussenegger <richard@fussenegger.info>
+# COPYRIGHT: 2008-15 Richard Fussenegger
+# LICENSE:   http://unlicense.org/ PD
 # ------------------------------------------------------------------------------
 
 openssl req -batch -nodes -newkey rsa:2048 -sha256 -keyout key -x509 -days 24855 -subj "/C=AT" -out pem

@@ -27,10 +27,9 @@
 # ------------------------------------------------------------------------------
 # Generate new server configuration.
 #
-# AUTHOR: Richard Fussenegger <richard@fussenegger.info>
-# COPYRIGHT: Copyright (c) 2014 Richard Fussenegger
-# LICENSE: http://unlicense.org/ PD
-# LINK: http://richard.fussenegger.info/
+# AUTHOR:    Richard Fussenegger <richard@fussenegger.info>
+# COPYRIGHT: 2008-15 Richard Fussenegger
+# LICENSE:   http://unlicense.org/ PD
 # ------------------------------------------------------------------------------
 
 # Check return status of every command.
