@@ -9,9 +9,10 @@ so are all files in the certificates and sites directories.
 ## Weblinks
 Other repositories of interest:
 
-- [nginx-compile](https://github.com/Fleshgrinder/nginx-compile)
-- [nginx-session-ticket-key-rotation](https://github.com/Fleshgrinder/nginx-session-ticket-key-rotation)
-- [nginx-sysvinit-script](https://github.com/Fleshgrinder/nginx-sysvinit-script)
+* [nginx-compile](https://github.com/Fleshgrinder/nginx-compile)
+* [nginx-session-ticket-key-rotation](https://github.com/Fleshgrinder/nginx-session-ticket-key-rotation)
+* [nginx-sysvinit-script](https://github.com/Fleshgrinder/nginx-sysvinit-script)
+* [hpkp](https://github.com/Fleshgrinder/hpkp) (HTTP Public Key Pinning)
 
 ## TODO
 * Create script to fetch StartSSL certificates.
