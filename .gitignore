@@ -1,6 +1,7 @@
 .idea
-certificates
-!certificates/_/generate-self-signed-certificates.sh
-sites/*
+certificates/*/*
+!certificates/_/*
+!certificates/startssl.com/*
+sites
 !sites/_.conf
 nginx.conf
