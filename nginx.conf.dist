@@ -73,8 +73,6 @@ http {
     recursive_error_pages           on;
     reset_timedout_connection       on;
     send_timeout                    9s;
-    sendfile                        on;
-    sendfile_max_chunk              512k;
     server_name_in_redirect         off;
     server_names_hash_bucket_size   64;
     server_tokens                   off;
