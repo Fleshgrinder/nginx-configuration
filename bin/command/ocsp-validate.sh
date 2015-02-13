@@ -25,11 +25,19 @@
 # ------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------
-# Generate self-signed certificate which is valid for ten years.
+# Validate OCSP stapling.
 #
 # AUTHOR:    Richard Fussenegger <richard@fussenegger.info>
-# COPYRIGHT: 2008-15 Richard Fussenegger
+# COPYRIGHT: Copyright (c) 2008-15 Richard Fussenegger
 # LICENSE:   http://unlicense.org/ PD
 # ------------------------------------------------------------------------------
 
-openssl req -batch -nodes -newkey rsa:2048 -sha256 -keyout key -x509 -days 24855 -subj "/C=AT" -out pem
+openssl s_client -connect "${1}:443" -servername "${1}" -tls1 -tlsextdebug -status -CApath startssl.com/certs/ | grep OCSP
+
+cat << EOT
+
+Please note that it might take some time for all workers to fetch the OSCP
+stapling file if you just (re)started your server. Simply execute this script
+various times (depending on your worker count).
+
+EOT

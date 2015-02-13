@@ -25,40 +25,14 @@
 # ------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------
-# Validate OCSP stapling.
+# Usage help text for OCSP file command.
 #
 # AUTHOR:    Richard Fussenegger <richard@fussenegger.info>
 # COPYRIGHT: Copyright (c) 2008-15 Richard Fussenegger
 # LICENSE:   http://unlicense.org/ PD
 # ------------------------------------------------------------------------------
 
-readonly __FILENAME__="${0##*/}"
-readonly __DIRNAME__="$(cd -- "$(dirname -- "${0}")"; pwd)"
-
-if [ $# -ne 1 ]; then
-    cat >&2 << EOT
-Usage: ${__FILENAME__} DOMAIN
-Validate OCSP stapling.
-
-The domain argument is mandatory:
-
-    sh ${__FILENAME__} www.example.com
-
-Report bugs to richard@fussenegger.info
-GitHub repository: https://github.com/Fleshgrinder/nginx-configuration
-For complete documentation, see: README.md
-EOT
-    exit 64
-fi
-
-openssl s_client -connect "${1}:443" -servername "${1}" -tls1 -tlsextdebug -status -CApath startssl.com/certs/ | grep OCSP
-
 cat << EOT
 
-Please note that it might take some time for all workers to fetch the OSCP
-stapling file if you just (re)started your server. Simply execute this script
-various times (depending on your worker count).
-
+Generate self-signed certificate and key for default server.
 EOT
-
-exit 0

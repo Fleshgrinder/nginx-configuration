@@ -1,6 +1,5 @@
 .idea
 certificates/*/*
-!certificates/_/*
 !certificates/startssl.com/*
 sites
 !sites/_.conf

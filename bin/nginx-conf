@@ -1,0 +1,158 @@
+#!/bin/sh
+
+#! -----------------------------------------------------------------------------
+# This is free and unencumbered software released into the public domain.
+#
+# Anyone is free to copy, modify, publish, use, compile, sell, or distribute
+# this software, either in source code form or as a compiled binary, for any
+# purpose, commercial or non-commercial, and by any means.
+#
+# In jurisdictions that recognize copyright laws, the author or authors of this
+# software dedicate any and all copyright interest in the software to the public
+# domain. We make this dedication for the benefit of the public at large and to
+# the detriment of our heirs and successors. We intend this dedication to be an
+# overt act of relinquishment in perpetuity of all present and future rights to
+# this software under copyright law.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+# ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+# WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+#
+# For more information, please refer to <http://unlicense.org>
+# ------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------
+# Main application.
+#
+# AUTHOR:    Richard Fussenegger <richard@fussenegger.info>
+# COPYRIGHT: Copyright (c) 2008-15 Richard Fussenegger
+# LICENSE:   http://unlicense.org/ PD
+# ------------------------------------------------------------------------------
+
+readonly EC_COMMAND_NOT_FOUND=64
+readonly EC_INVALID_OPT=65
+readonly EC_MISSING_ARG=66
+
+export OPTERR=0
+readonly __FILENAME__="${0##*/}"
+readonly __DIRNAME__="$(cd -- "$(dirname -- "${0}")"; pwd)"
+readonly COMMAND="${1}"
+readonly CMD_DIR="${__DIRNAME__}/command"
+readonly TPL_DIR="${__DIRNAME__}/template"
+readonly USAGE_DIR="${CMD_DIR}/usage"
+readonly NGINX_DIR="$(dirname "${__DIRNAME__}")"
+
+if command -v tput 2>/dev/null 1>/dev/null
+then
+    RED=$(tput bold; tput setaf 1)
+    GREEN=$(tput bold; tput setaf 2)
+    YELLOW=$(tput bold; tput setaf 3)
+    BLUE=$(tput bold; tput setaf 4)
+    NORMAL=$(tput sgr0)
+fi
+
+readonly RED
+readonly GREEN
+readonly YELLOW
+readonly BLUE
+readonly NORMAL
+
+app_usage()
+{
+    cat << EOT
+Usage: ${__FILENAME__} ${YELLOW}COMMAND${NORMAL}
+Execute nginx configuration command.
+
+Available commands:
+$(for C in "${CMD_DIR}"/*.sh; do C=${C##*/} && printf -- '  - %s\n' "${YELLOW}${C%.sh}${NORMAL}"; done)
+
+Please refer to each individual command for usage information, which you may
+acquire by executing \`${__FILENAME__} ${YELLOW}COMMAND${NORMAL} -h\`.
+
+Report bugs to <richard@fussenegger.info>
+GitHub repository: https://github.com/Fleshgrinder/nginx-configuration
+Please refer to the provided README file for detailed instructions.
+EOT
+}
+
+# First argument is mandatory.
+[ -z "${1}" ] && app_usage >&2 && exit ${EC_MISSING_ARG}
+
+# Display usage and exit if help was requested.
+[ "${1}" = '-h' ] && app_usage && exit 0
+
+# Remove the first argument.
+shift
+
+# Log message to console.
+#
+# ARGS:
+#   $1 - Message to log.
+log()
+{
+    printf -- '%s\n' "${1}"
+}
+
+# Log fail message to console.
+#
+# ARGS:
+#   $1 - Fail message to log.
+log_fail()
+{
+    log "[${RED}fail${NORMAL}] ${1}"
+}
+
+# Log info message to console.
+#
+# ARGS:
+#   $1 - Info message to log.
+log_info()
+{
+    log "[${YELLOW}info${NORMAL}] ${1}"
+}
+
+# Log ok message to console.
+#
+# ARGS:
+#   $1 - Ok message to log.
+log_ok()
+{
+    log "[${GREEN} ok ${NORMAL}] ${1}"
+}
+
+# Log fail message to console and exit the script with an error code.
+#
+# ARGS:
+#   $1 - Fail message to log.
+#   $2 - Error code to exit with.
+die()
+{
+    log_fail "${1}"
+    exit ${2}
+}
+
+# Create usage makro for commands.
+usage()
+{
+    cat << EOT
+Usage: ${__FILENAME__} ${COMMAND} `. "${USAGE_DIR}/${COMMAND}.sh"`
+
+Report bugs to <richard@fussenegger.info>
+GitHub repository: https://github.com/Fleshgrinder/nginx-configuration
+Please refer to the provided README file for detailed instructions.
+EOT
+}
+
+# Execute the desired command.
+if [ -f "${CMD_DIR}/${COMMAND}.sh" ]; then
+    . "${CMD_DIR}/${COMMAND}.sh" "$@"
+else
+    log_fail "Command ${YELLOW}${COMMAND}${NORMAL} not found."
+    app_usage >&2
+    exit ${EC_COMMAND_NOT_FOUND}
+fi
+
+exit 0

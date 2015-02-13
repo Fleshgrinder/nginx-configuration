@@ -61,6 +61,7 @@ http {
     include                         includes/php-fpm-upstream.conf;
     include                         includes/mime.types;
     include                         sites/*.conf;
+    include                         sites/*/*.conf;
     index                           index.html index.htm;
     keepalive_disable               none;
     keepalive_requests              50;
