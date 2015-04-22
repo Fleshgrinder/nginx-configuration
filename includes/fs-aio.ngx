@@ -16,22 +16,15 @@
 # ----------------------------------------------------------------------------------------------------------------------
 # POSIX asynchronous I/O configuration.
 #
-# You can include this pretty much anywhere wherey you need it. Note that sendfile is automatically disabled. There are
-# various other limitations of AIO in Linux as of now. It definitely makes sense for streaming big files.
-#
-# - http://man7.org/linux/man-pages/man7/aio.7.html#NOTES
-# - http://inerciatech.com/post/8421500006/why-you-probably-dont-need-aio-on-linux
-#
-# *Note:* I include the `sendfile off` option to ensure that nginx throws an error in case this and the
-# `file-sendfile.conf` are used together in the same configuration block.
-#
 # @author Richard Fussenegger <richard@fussenegger.info>
 # @copyright 2015 (c) Richard Fussenegger
 # @license https://www.gnu.org/licenses/agpl-3.0.html AGPLv3
 # ----------------------------------------------------------------------------------------------------------------------
 
-aio          on;
-directio     512;
-sendfile     off;
-tcp_nodelay  on;
-tcp_nopush   on;
+aio             threads;
+directio        1m;
+output_buffers  1 128k;
+read_ahead      128k;
+sendfile        on;
+tcp_nodelay     on;
+tcp_nopush      on;

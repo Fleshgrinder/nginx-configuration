@@ -24,6 +24,6 @@
 # ----------------------------------------------------------------------------------------------------------------------
 
 sendfile            on;
-sendfile_max_chunk  512k;
+sendfile_max_chunk  128k;
 tcp_nodelay         on;
 tcp_nopush          on;

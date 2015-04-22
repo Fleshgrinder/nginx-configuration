@@ -61,9 +61,7 @@ http {
     keepalive_timeout               120s;
     max_ranges                      0;
     msie_padding                    off;
-    output_buffers                  1 128k;
     postpone_output                 1440;
-    read_ahead                      128k;
     recursive_error_pages           on;
     reset_timedout_connection       on;
     send_timeout                    9s;
