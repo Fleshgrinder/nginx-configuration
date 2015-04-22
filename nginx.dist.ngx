@@ -25,7 +25,7 @@
 
 pcre_jit                            on;
 timer_resolution                    1s;
-worker                              auto;
+worker_processes                    auto;
 #include                             includes/worker-six-core-with-hyper-threading.conf;
 worker_priority                     15;
 worker_rlimit_core                  0;
