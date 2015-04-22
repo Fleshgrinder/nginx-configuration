@@ -35,7 +35,7 @@ location ~* '\.(?:css|js)' {
     include includes/.static-files-one-year.ngx;
 }
 
-location ~* '\.(?:3gp|cur|eot|gif|htc|ico|jng|jpe?g|mp3|mp4|ogg|ogv|otf|png|svgz?|swf|tiff?|ttc|ttf|wav|webm|webp|woff2?)' {
+location ~* '\.(?:3gp|cur|eot|gif|htc|ico|jng|jpe?g|mp3|mp4|ogg|ogv|otf|png|svgz?|swf|tiff?|ttc|ttf|txt|wav|webm|webp|woff2?)' {
     include includes/headers.ngx;
     include includes/.static-files-one-month.ngx;
 }
