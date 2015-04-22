@@ -21,6 +21,6 @@
 # @license https://www.gnu.org/licenses/agpl-3.0.html AGPLv3
 # ----------------------------------------------------------------------------------------------------------------------
 
-location ~* "(?:(?:^|/)\.|(?:\.(?:bak|cfg|config|dist|fla|inc|ini|log|psd|sh|sql|swp)|~)$)" {
+location ~* '(?:(?:^|/)\.|(?:\.(?:bak|cfg|config|dist|fla|inc|ini|log|psd|sh|sql|swp)|~)$)' {
     deny all;
 }

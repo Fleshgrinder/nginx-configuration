@@ -28,4 +28,4 @@
 # @license https://www.gnu.org/licenses/agpl-3.0.html AGPLv3
 # ----------------------------------------------------------------------------------------------------------------------
 
-add_header Access-Control-Allow-Origin "*";
+add_header Access-Control-Allow-Origin *;

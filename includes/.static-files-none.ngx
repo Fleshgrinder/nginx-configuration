@@ -21,6 +21,6 @@
 # @license https://www.gnu.org/licenses/agpl-3.0.html AGPLv3
 # ----------------------------------------------------------------------------------------------------------------------
 
-expires      -1;
-tcp_nodelay  off;
-try_files    $uri =404;
+expires         -1;
+tcp_nodelay     off;
+try_files       $uri =404;

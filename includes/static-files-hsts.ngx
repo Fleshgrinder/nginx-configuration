@@ -22,7 +22,7 @@
 #
 # server {
 #     location / {
-#         include includes/static-files-hsts.conf;
+#         include includes/static-files-hsts.ngx;
 #     }
 # }
 #
@@ -31,22 +31,22 @@
 # @license https://www.gnu.org/licenses/agpl-3.0.html AGPLv3
 # ----------------------------------------------------------------------------------------------------------------------
 
-location ~* "\.(?:css|js)" {
-    include includes/.static-files-one-year.conf;
-    include includes/headers-hsts.conf;
+location ~* '\.(?:css|js)' {
+    include     includes/headers-hsts.ngx;
+    include     includes/.static-files-one-year.ngx;
 }
 
-location ~* "\.(?:3gp|cur|eot|gif|htc|ico|jng|jpe?g|mp3|mp4|ogg|ogv|otf|png|svgz?|swf|tiff?|ttc|ttf|wav|webm|webp|woff2?)" {
-    include includes/.static-files-one-month.conf;
-    include includes/headers-hsts.conf;
+location ~* '\.(?:3gp|cur|eot|gif|htc|ico|jng|jpe?g|mp3|mp4|ogg|ogv|otf|png|svgz?|swf|tiff?|ttc|ttf|wav|webm|webp|woff2?)' {
+    include     includes/headers-hsts.ngx;
+    include     includes/.static-files-one-month.ngx;
 }
 
-location ~* "\.(?:rss|atom)" {
-    include includes/.static-files-one-hour.conf;
-    include includes/headers-hsts.conf;
+location ~* '\.(?:rss|atom)' {
+    include     includes/headers-hsts.ngx;
+    include     includes/.static-files-one-hour.ngx;
 }
 
-location ~* "\.(?:manifest|appcache|html?|xml|json)" {
-    include includes/.static-files-none.conf;
-    include includes/headers-hsts.conf;
+location ~* '\.(?:manifest|appcache|html?|xml|json)' {
+    include     includes/headers-hsts.ngx;
+    include     includes/.static-files-none.ngx;
 }
