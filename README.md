@@ -93,6 +93,4 @@ Other repositories of interest:
   by reading from `STDIN` for easy pasting.
 
 ## License
-> This is free and unencumbered software released into the public domain.
->
-> For more information, please refer to <http://unlicense.org>
+[![AGPLv3](https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/AGPLv3_Logo.svg/128px-AGPLv3_Logo.svg.png)](https://www.gnu.org/licenses/agpl-3.0.html)
