@@ -1,6 +1,6 @@
-.idea
-certificates/*/*
-!certificates/startssl.com/*
-sites
-!sites/_.conf
-nginx.conf
+/.idea
+/certificates/*/*
+!/certificates/startssl.com/*
+/sites/*
+!/sites/_.conf
+/nginx.conf
