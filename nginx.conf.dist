@@ -52,7 +52,7 @@ http {
     include                         includes/https.conf;
     include                         includes/https-spdy.conf;
     include                         includes/php-fpm-upstream.conf;
-    include                         includes/mime.types;
+    include                         includes/mime-types.conf;
     include                         sites/*.conf;
     include                         sites/*/*.conf;
     index                           index.html index.htm;
