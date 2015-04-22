@@ -14,30 +14,13 @@
 # ----------------------------------------------------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------------------------------------------------
-# PHP-FPM upstream configuration.
-#
-# - https://github.com/Fleshgrinder/php-configuration
+# PHP FPM (FastCGI) parameters.
 #
 # @author Richard Fussenegger <richard@fussenegger.info>
 # @copyright 2015 (c) Richard Fussenegger
 # @license https://www.gnu.org/licenses/agpl-3.0.html AGPLv3
 # ----------------------------------------------------------------------------------------------------------------------
 
-# Check for existence of the default PHP session cache limiter. If it is present
-# do not send a cached request and instead bypass any caches.
-#
-# SEE: https://php.net/session.configuration#ini.session.cache-limiter
-# SEE: https://php.net/session-cache-limiter
-map $http_cookie $nocache {
-    default 0;
-    nocache 1;
-}
-
-upstream php_fpm {
-    least_conn;
-    keepalive 3;
-
-    server unix:/run/php-fpm-1.sock max_fails=250 fail_timeout=180s;
-    server unix:/run/php-fpm-2.sock max_fails=250 fail_timeout=180s;
-    #server unix:/run/php-fpm-3.sock backup;
-}
+fastcgi_index   index.php;
+fastcgi_pass    php_fpm;
+include         includes/fastcgi-parameters.ngx;
