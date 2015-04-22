@@ -7,8 +7,11 @@ end_of_line = lf
 indent_size = 4
 indent_style = space
 insert_final_newline = true
-tab_width = 8
+tab_width = 4
 trim_trailing_whitespace = true
+
+[makefile]
+indent_style = tab
 
 [*.md]
 trim_trailing_whitespace = false
