@@ -43,7 +43,6 @@ server {
         include     includes/protect-system-files.ngx;
         include     includes/fs-aio.ngx;
         include     includes/static-files.ngx;
-        include     includes/fastcgi-microcache.ngx;
         include     includes/php-fpm-drupal.ngx;
     }
 }
