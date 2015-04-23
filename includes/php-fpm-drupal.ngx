@@ -21,8 +21,7 @@
 # @license https://www.gnu.org/licenses/agpl-3.0.html AGPLv3
 # ----------------------------------------------------------------------------------------------------------------------
 
-include includes/php-fpm.ngx;
-
+include                 includes/php-fpm.ngx;
 fastcgi_param           QUERY_STRING        q=$uri&$args;
 fastcgi_param           SCRIPT_NAME         /index.php;
 fastcgi_param           SCRIPT_FILENAME     $document_root/index.php;
