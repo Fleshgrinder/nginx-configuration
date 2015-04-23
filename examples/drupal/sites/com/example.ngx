@@ -45,7 +45,5 @@ server {
         include     includes/static-files.ngx;
         include     includes/fastcgi-microcache.ngx;
         include     includes/php-fpm-drupal.ngx;
-        #include     includes/php-fpm-tcp-upstream.ngx;
-        include     includes/php-fpm-unix-socket-upstream.ngx;
     }
 }

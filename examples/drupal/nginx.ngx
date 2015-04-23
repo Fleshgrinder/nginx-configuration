@@ -50,6 +50,7 @@ http {
     include                         includes/https-spdy.ngx;
     include                         includes/https.ngx;
     include                         includes/mime-types.ngx;
+    #include                         includes/php-fpm-tcp-upstream.ngx;
     include                         includes/php-fpm-unix-socket-upstream.ngx;
     index                           index.html index.htm;
     keepalive_disable               none;
