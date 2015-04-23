@@ -14,7 +14,7 @@
 # ----------------------------------------------------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------------------------------------------------
-# PHP FPM (FastCGI) parameters.
+# PHP FPM (FastCGI) configuration.
 #
 # @author Richard Fussenegger <richard@fussenegger.info>
 # @copyright 2015 (c) Richard Fussenegger
@@ -31,5 +31,3 @@ fastcgi_max_temp_file_size      0;
 fastcgi_pass                    php_fpm;
 fastcgi_pass_request_body       off;
 fastcgi_read_timeout            14400;
-include                         includes/fastcgi-parameters.ngx;
-try_files                       $uri =404;
