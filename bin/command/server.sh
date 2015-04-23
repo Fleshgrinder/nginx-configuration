@@ -44,7 +44,7 @@ done
 readonly DOMAIN="${1}"
 readonly SUBDOMAIN="${2:-www}"
 readonly FULLDOMAIN="${SUBDOMAIN}.${DOMAIN}"
-readonly CONF_PATH="${NGINX_DIR}/sites/${DOMAIN}/${SUBDOMAIN}.conf"
+readonly CONF_PATH="${NGINX_DIR}/sites/${DOMAIN}/${SUBDOMAIN}.ngx"
 readonly WWW=${WWW:-true}
 
 log "Generating server configuration for ${BLUE}${FULLDOMAIN}${NORMAL} ..."
