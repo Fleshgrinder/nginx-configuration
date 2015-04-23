@@ -1,0 +1,38 @@
+#! ---------------------------------------------------------------------------------------------------------------------
+# This file is part of fleshgrinder/nginx-configuration.
+#
+# fleshgrinder/nginx-configuration is free software: you can redistribute it and/or modify it under the terms of the GNU
+# Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at
+# your option) any later version.
+#
+# fleshgrinder/nginx-configuration is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+# even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public
+# License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License along with fleshgrinder/nginx-configuration.
+# If not, see <https://www.gnu.org/licenses/agpl-3.0.html>.
+# ----------------------------------------------------------------------------------------------------------------------
+
+# ----------------------------------------------------------------------------------------------------------------------
+# FastCGI microcache configuration.
+#
+# - http://fennb.com/microcaching-speed-your-app-up-250x-with-no-n
+# - If above link is down, try this: http://bundlr.com/clips/4e9d125087772400010004e5
+#
+# @author Richard Fussenegger <richard@fussenegger.info>
+# @copyright 2015 (c) Richard Fussenegger
+# @license https://www.gnu.org/licenses/agpl-3.0.html AGPLv3
+# ----------------------------------------------------------------------------------------------------------------------
+
+add_header                  X-Microcache $upstream_cache_status;
+expires                     epoch;
+fastcgi_cache               microcache;
+fastcgi_cache_bypass        $no_cache;
+fastcgi_cache_key           $scheme$request_method$host$request_uri;
+fastcgi_cache_lock          on;
+fastcgi_cache_lock_timeout  8000;
+fastcgi_cache_use_stale     error timeout invalid_header updating http_500;
+fastcgi_cache_valid         200 301 1s;
+fastcgi_cache_valid         302 404 1m;
+fastcgi_ignore_headers      Cache-Control Expires;
+fastcgi_no_cache            $no_cache;
