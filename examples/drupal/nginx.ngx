@@ -48,8 +48,8 @@ http {
     include                         includes/fastcgi-microcache.ngx;
     include                         includes/gzip.ngx;
     include                         includes/headers.ngx;
-    include                         includes/https-spdy.ngx;
     include                         includes/https.ngx;
+    include                         includes/https-spdy.ngx;
     include                         includes/mime-types.ngx;
     #include                         includes/php-fpm-tcp-upstream.ngx;
     include                         includes/php-fpm-unix-socket-upstream.ngx;

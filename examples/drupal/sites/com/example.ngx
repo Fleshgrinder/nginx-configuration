@@ -22,21 +22,19 @@
 # ----------------------------------------------------------------------------------------------------------------------
 
 server {
-    set             $usr_domain example.com;
     listen          [::]:80;
-    server_name     $usr_domain *.$usr_domain;
+    server_name     example.com *.example.com;
 
-    return 301 $scheme://www.$usr_domain$request_uri;
+    return 301 $scheme://www.example.com$request_uri;
 }
 
 server {
-    set             $usr_domain example.com;
     listen          [::]:80;
-    server_name     www.$usr_domain;
-    root            /var/www/$usr_domain/www;
+    server_name     www.example.com;
+    root            /var/www/example.com/www;
 
-    # Enable PHP support per server and not globally.
-    include         includes/php-fpm.ngx;
+    # Including the FastCGI parameters directly in the server block allows us to overwrite them in subsequent locations.
+    include         includes/fastcgi-parameters.ngx;
     index           index.php;
 
     location / {
