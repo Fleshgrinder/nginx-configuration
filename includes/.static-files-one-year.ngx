@@ -21,6 +21,7 @@
 # @license https://www.gnu.org/licenses/agpl-3.0.html AGPLv3
 # ----------------------------------------------------------------------------------------------------------------------
 
+access_log          off;
 add_header          Cache-Control public;
 etag                off;
 expires             1y;
