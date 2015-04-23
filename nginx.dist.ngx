@@ -26,7 +26,6 @@
 pcre_jit                            on;
 timer_resolution                    1s;
 worker_processes                    auto;
-#include                             includes/worker-six-core-with-hyper-threading.conf;
 worker_priority                     15;
 worker_rlimit_core                  0;
 worker_rlimit_nofile                262144;
@@ -39,21 +38,17 @@ events {
 }
 
 http {
-    access_log                      off;
     charset                         utf-8;
     client_body_timeout             3s;
     client_header_timeout           3s;
     client_max_body_size            16m;
     default_type                    application/octet-stream;
     ignore_invalid_headers          on;
-    include                         includes/fs-sendfile.ngx;
     include                         includes/gzip.ngx;
     include                         includes/headers.ngx;
     include                         includes/https.ngx;
     include                         includes/https-spdy.ngx;
     include                         includes/mime-types.ngx;
-    include                         sites/*.ngx;
-    include                         sites/*/*.ngx;
     index                           index.html index.htm;
     keepalive_disable               none;
     keepalive_requests              50;
@@ -69,4 +64,7 @@ http {
     server_tokens                   off;
     types_hash_max_size             2048;
     uninitialized_variable_warn     off;
+
+    include                         sites/*.ngx;
+    include                         sites/*/*.ngx;
 }
