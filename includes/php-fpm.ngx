@@ -21,6 +21,8 @@
 # @license https://www.gnu.org/licenses/agpl-3.0.html AGPLv3
 # ----------------------------------------------------------------------------------------------------------------------
 
+include                         includes/fastcgi-parameters.ngx;
+
 client_body_in_file_only        clean;
 client_body_in_single_buffer    on;
 fastcgi_buffers                 256 4k;

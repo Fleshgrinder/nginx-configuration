@@ -29,13 +29,10 @@ server {
 }
 
 server {
-    listen          [::]:80;
-    server_name     www.example.com;
-    root            /var/www/example.com/www;
-
-    # Including the FastCGI parameters directly in the server block allows us to overwrite them in subsequent locations.
-    include         includes/fastcgi-parameters.ngx;
     index           index.php;
+    listen          [::]:80;
+    root            /var/www/example.com/www;
+    server_name     www.example.com;
 
     location / {
         include     includes/protect-system-files.ngx;
