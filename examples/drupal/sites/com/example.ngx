@@ -36,7 +36,6 @@ server {
 
     location / {
         include     includes/protect-system-files.ngx;
-        include     includes/fs-aio.ngx;
         include     includes/static-files.ngx;
         include     includes/php-fpm-drupal.ngx;
     }

@@ -30,22 +30,22 @@
 # @license https://www.gnu.org/licenses/agpl-3.0.html AGPLv3
 # ----------------------------------------------------------------------------------------------------------------------
 
-location ~* '\.(?:css|js)' {
+location ~* "\.(?:css|js)$" {
     include     includes/headers.ngx;
     include     includes/.static-files-one-year.ngx;
 }
 
-location ~* '(?:/(?:browserconfig|crossdomain)\.xml|\.(?:3gp|cur|eot|gif|htc|ico|jng|jpe?g|mp(?:3|4)|og(?:g|v)|otf|png|svgz?|swf|tiff?|ttc|ttf|txt|wav|web(?:m|p)|woff2?))' {
+location ~* "(?:^/(?:browserconfig|crossdomain)\.xml|\.(?:3gp|cur|eot|gif|htc|ico|jng|jpe?g|mp(?:3|4)|og(?:g|v)|otf|png|svgz?|swf|tiff?|ttc|ttf|txt|wav|web(?:m|p)|woff2?))$" {
     include     includes/headers.ngx;
     include     includes/.static-files-one-month.ngx;
 }
 
-location ~* '\.(?:rss|atom)' {
+location ~* "\.(?:rss|atom)$" {
     include     includes/headers.ngx;
     include     includes/.static-files-one-hour.ngx;
 }
 
-location ~* '\.(?:manifest|appcache|html?|xml|json)' {
+location ~* "\.(?:manifest|appcache|html?|xml|json)$" {
     include     includes/headers.ngx;
     include     includes/.static-files-none.ngx;
 }

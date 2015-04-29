@@ -27,7 +27,7 @@
 # @license https://www.gnu.org/licenses/agpl-3.0.html AGPLv3
 # ----------------------------------------------------------------------------------------------------------------------
 
-ssl_buffer_size            1400;
+ssl_buffer_size            1360;
 ssl_ciphers                kEECDH+ECDSA:kEECDH:kEDH:HIGH:+SHA:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!DSS:!PSK:!RC4:!kRSA:!SRP:!kECDH:!CAMELLIA;
 ssl_ecdh_curve             prime256v1;
 ssl_prefer_server_ciphers  on;

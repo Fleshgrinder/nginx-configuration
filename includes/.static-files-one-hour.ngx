@@ -23,5 +23,5 @@
 
 add_header      Cache-Control 'public, must-revalidate';
 expires         1h;
-tcp_nodelay     off;
+sendfile        on;
 try_files       $uri =404;

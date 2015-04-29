@@ -43,6 +43,7 @@ http {
     client_header_timeout           3s;
     client_max_body_size            16m;
     default_type                    application/octet-stream;
+    directio                        1m;
     ignore_invalid_headers          on;
     include                         includes/gzip.ngx;
     include                         includes/headers.ngx;
@@ -55,7 +56,9 @@ http {
     keepalive_timeout               120s;
     max_ranges                      0;
     msie_padding                    off;
-    postpone_output                 1440;
+    output_buffers                  1 512k; # Should match read_ahead.
+    postpone_output                 1460;
+    read_ahead                      512k; # Should match output_buffers.
     recursive_error_pages           on;
     reset_timedout_connection       on;
     send_timeout                    9s;

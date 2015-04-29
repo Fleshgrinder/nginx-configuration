@@ -21,6 +21,5 @@
 # @license https://www.gnu.org/licenses/agpl-3.0.html AGPLv3
 # ----------------------------------------------------------------------------------------------------------------------
 
-include includes/headers.ngx;
-
+include     includes/headers.ngx;
 add_header  Strict-Transport-Security 'max-age=262974383; includeSubdomains; preload' always;

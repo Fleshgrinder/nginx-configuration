@@ -26,5 +26,5 @@ add_header          Cache-Control public;
 etag                off;
 expires             1M;
 if_modified_since   off;
-tcp_nodelay         off;
+sendfile            on;
 try_files           $uri =404;
