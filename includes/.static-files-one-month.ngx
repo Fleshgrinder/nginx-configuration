@@ -25,6 +25,5 @@ access_log          off;
 add_header          Cache-Control public;
 etag                off;
 expires             1M;
-if_modified_since   off;
 sendfile            on;
 try_files           $uri =404;
