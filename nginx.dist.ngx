@@ -31,7 +31,7 @@ worker_rlimit_core                  0;
 worker_rlimit_nofile                262144;
 
 events {
-    accept_mutex                    on;
+    accept_mutex                    off;
     accept_mutex_delay              50ms;
     multi_accept                    on;
     worker_connections              131072;
@@ -48,7 +48,6 @@ http {
     include                         includes/gzip.ngx;
     include                         includes/headers.ngx;
     include                         includes/https.ngx;
-    include                         includes/https-spdy.ngx;
     include                         includes/mime-types.ngx;
     index                           index.html index.htm;
     keepalive_disable               none;

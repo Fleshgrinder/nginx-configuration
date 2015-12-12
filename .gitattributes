@@ -1,1 +1,8 @@
-* text=auto eol=lf
+*           text=auto eol=lf
+.*          text eol=lf
+*.md        text eol=lf
+*.ngx       text eol=lf
+*.pem       text eol=lf
+*.txt       text eol=lf
+*.sh        text eol=lf
+nginx-conf  text eol=lf

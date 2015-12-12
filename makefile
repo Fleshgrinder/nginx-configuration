@@ -1,3 +1,5 @@
+#!/bin/sh
+
 #! ---------------------------------------------------------------------------------------------------------------------
 # This file is part of fleshgrinder/nginx-configuration.
 #
@@ -14,23 +16,16 @@
 # ----------------------------------------------------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------------------------------------------------
-# Default server for client's which do not send the Host header.
-#
 # @author Richard Fussenegger <richard@fussenegger.info>
 # @copyright 2015 (c) Richard Fussenegger
 # @license https://www.gnu.org/licenses/agpl-3.0.html AGPLv3
 # ----------------------------------------------------------------------------------------------------------------------
 
-server {
-    listen              [::]:80 backlog=65536 default_server deferred ipv6only=off reuseport rcvbuf=16k sndbuf=512k;
-    server_name         _;
-    return              403;
-}
+SHELL = /bin/sh
+.SUFFIXES:
 
-server {
-    listen              [::]:443 backlog=65536 default_server deferred ipv6only=off reuseport rcvbuf=16k sndbuf=512k http2 ssl;
-    server_name         _;
-    ssl_certificate     certificates/_/pem;
-    ssl_certificate_key certificates/_/key;
-    return              403;
-}
+all:
+	cp nginx.dist.ngx nginx.ngx
+	./bin/nginx-conf sscert
+	-service nginx stop
+	service nginx start
