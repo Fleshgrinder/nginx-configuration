@@ -44,7 +44,7 @@ server {
     ssl_certificate     certificates/${DOMAIN}/${SUBDOMAIN}/pem;
     ssl_certificate_key certificates/${DOMAIN}/${SUBDOMAIN}/key;
 
-    locaton / {
+    location / {
         include         includes/protect-system-files.ngx;
         include         includes/static-files-hsts.ngx;
     }
