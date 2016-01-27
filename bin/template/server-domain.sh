@@ -37,9 +37,9 @@ server {
     listen              [::]:443 spdy ssl;
     server_name         ${SERVER_NAME_ALT};
 
-    include             includes/headers.conf;
-    include             includes/headers-hsts.conf;
-    include             includes/https-ocsp-stapling-responder.conf;
+    include             includes/headers.ngx;
+    include             includes/headers-hsts.ngx;
+    include             includes/https-ocsp-stapling-responder.ngx;
     ssl_certificate     certificates/${DOMAIN}/${SUBDOMAIN}/pem;
     ssl_certificate_key certificates/${DOMAIN}/${SUBDOMAIN}/www/key;
 
@@ -50,15 +50,15 @@ server {
     listen              [::]:443 spdy ssl;
     server_name         ${SERVER_NAME};
 
-    include             includes/headers.conf;
-    include             includes/headers-hsts.conf;
+    include             includes/headers.ngx;
+    include             includes/headers-hsts.ngx;
     root                /var/www/${DOMAIN}/${SUBDOMAIN};
     ssl_certificate     certificates/${DOMAIN}/${SUBDOMAIN}/pem;
     ssl_certificate_key certificates/${DOMAIN}/${SUBDOMAIN}/key;
 
     location / {
-        include         includes/protect-system-files.conf;
-        include         includes/static-files-hsts.conf;
+        include         includes/protect-system-files.ngx;
+        include         includes/static-files-hsts.ngx;
     }
 }
 EOT
